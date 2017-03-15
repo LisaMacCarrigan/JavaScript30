@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -18,24 +18,44 @@
     }
 
     // Regular
+    console.log('hello');
 
     // Interpolated
+    console.log('Hello I am a %s string!', 'brief');
 
     // Styled
+    console.log('%c I am some great text', 'color: white; font-size: 20px; background: blue;');
 
     // warning!
+    console.warn('OH NO!');
 
     // Error :|
+    console.error('Error!!');
 
     // Info
+    console.info('Crocodiles eat 3-4 people per year');
 
     // Testing
+    const p = document.querySelector('p');
+
+    console.assert(p.classList.contains('ouch'), 'That is wrong!'); // if it is false it will throw the statement into the console.
 
     // clearing
+    // console.clear();
 
     // Viewing DOM Elements
+    console.log(p);
+    console.dir(p); // shows all properties and methods that live on that element
 
     // Grouping together
+
+    dogs.forEach(dog => {
+      console.group(`${dog.name}`);
+      console.log(`This is ${dog.name}`);
+      console.log(`${dog.name} is ${dog.age} years old`);
+      console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+      console.groupEnd(`${dog.name}`);
+    })
 
     // counting
 
