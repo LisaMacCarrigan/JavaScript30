@@ -15,6 +15,7 @@ ctx.strokeStyle = '#BADA55';
 // check out MDN for all of the options
 ctx.lineJoin = 'round';
 ctx.lineCap = 'round';
+ctx.lineWidth = 10;
 
 let isDrawing = false;
 let lastX = 0;
@@ -23,10 +24,18 @@ let lastY = 0;
 function draw(e) {
   if(!isDrawing) return; // stop the fn from running when they are not moused down
   console.log(e);
+  ctx.beginPath();
+  ctx.moveTo(lastX, lastY);
+  ctx.lineTo(e.offsetX, e.offsetY);
+  ctx.stroke();
+  [lastX, lastY] = [e.offsetX, e.offsetY]; // 'destructuring' an array
 }
 
+canvas.addEventListener('mousedown', (e) => {
+  isDrawing = true;
+  [lastX, lastY] = [e.offsetX, e.offsetY]; // 'destructuring' an array
+});
 canvas.addEventListener('mousemove', draw);
-canvas.addEventListener('mousedown', () => isDrawing = true);
 canvas.addEventListener('mouseup', () => isDrawing = false);
 canvas.addEventListener('mouseout', () => isDrawing = false);
 
